@@ -8,7 +8,7 @@
 @section('content')
 <div class="container">
     <h1>Create Tamu</h1>
-    <form action="/tamu/update/{{$tamus->id}}" method="POST">
+    <form action="{{url('/tamu/update/'.$tamus->id)}}" method="POST">
         @csrf
         @method('PUT')
         <div class="mb-3">

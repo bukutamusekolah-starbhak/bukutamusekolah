@@ -16,7 +16,7 @@
     </div>
 @endif
 
-<a href="tamu.create" class="btn btn-primary my-3">Tambah Tamu</a>
+<a href="{{url('tamu.create')}}" class="btn btn-primary my-3">Tambah Tamu</a>
 
 <table class="table table-bordered">
     <thead>
@@ -36,8 +36,8 @@
         <td>{{$tamu->keperluan}}</td>
         <td>{{$tamu->ruangans->nama_ruangan}}</td>
         <td>
-            <a href="tamu/edit/{{$tamu->id}}" class="btn btn-warning">Edit</a>
-            <form action="/tamu/destroy/{{$tamu->id}}" method="post" style="display: inline-block;" onclick="return confirm('are you sure');">
+            <a href="{{url('tamu/edit/'.$tamu->id)}}" class="btn btn-warning">Edit</a>
+            <form action="{{url('/tamu/destroy/'.$tamu->id)}}" method="post" style="display: inline-block;" onclick="return confirm('are you sure');">
               @csrf
               @method('DELETE')
             <button class="btn btn-danger">Hapus</button>

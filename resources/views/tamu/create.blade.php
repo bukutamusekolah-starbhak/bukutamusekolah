@@ -9,7 +9,7 @@
 @section('content')
 <div class="container">
     <h1>Create Tamu</h1>
-    <form action="tamu/store" method="POST">
+    <form action="{{url('tamu/store')}}" method="POST">
         @csrf
         <div class="mb-3">
         <label for="nama_tamu" class="form-label">Nama Tamu</label>
