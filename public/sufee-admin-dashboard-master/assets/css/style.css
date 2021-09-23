@@ -1007,7 +1007,7 @@ aside.left-panel {
   min-height: 100%;
   padding: 0 25px;
   vertical-align: top;
-  width: 280px;
+  width: 300px;
   -webkit-transition:width 0.3s ease;
   transition: width 0.3s ease; }
 
@@ -1176,8 +1176,8 @@ body.open .navbar .navbar-brand.hidden {
   display: block; }
 
 .open aside.left-panel {
-  max-width: 70px;
-  width: 70px; }
+  max-width: 100px;
+  width: 100px; }
   .open aside.left-panel .navbar .navbar-brand {
     display: none; }
     .open aside.left-panel .navbar .navbar-brand.hidden {

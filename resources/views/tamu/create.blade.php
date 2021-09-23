@@ -9,11 +9,23 @@
 @section('content')
 <div class="container">
     <h1>Create Tamu</h1>
-    <form action="{{url('tamu/store')}}" method="POST">
+    <form action="{{route('tamu.store')}}" method="POST">
         @csrf
         <div class="mb-3">
         <label for="nama_tamu" class="form-label">Nama Tamu</label>
-        <input type="text" class="form-control @error('nama_tamu') is-invalid @enderror" name="nama_tamu">
+        {{-- <select class="form-control" aria-label="Default select example" name="nama_tamu">
+            <option disabled>Nama Tamu</option> --}}
+            {{-- <option value="1">One</option> --}}
+            {{-- @foreach ($data_tamus as $data_tamu)
+            <option value="{{$data_tamu->nama}}">{{$data_tamu->nama}}</option>
+            @endforeach
+        </select> --}}
+        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search..." name="nama_tamu">
+        <datalist id="datalistOptions">
+        @foreach ($data_tamus as $data_tamu)
+        <option value="{{$data_tamu->nama}}">
+        @endforeach
+        </datalist>
         @error('nama_tamu')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror

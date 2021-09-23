@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Tamu;
-use App\Models\Ruangan;
-use App\Models\DataTamu;
+use App\Models\Status;
 
-return abort('404');
-class PengunjungController extends Controller
+class StatusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +14,8 @@ class PengunjungController extends Controller
      */
     public function index()
     {
-        $tamus = Tamu::with('ruangans')->paginate();
-        return view('tamu.index',compact('tamus'));
+        $statuss = Status::all();
+        return view('modeabsensi.index',compact('statuss'));
     }
 
     /**
@@ -28,9 +25,7 @@ class PengunjungController extends Controller
      */
     public function create()
     {
-        $ruangans = Ruangan::all();
-        $data_tamus = DataTamu::latest()->paginate();
-        return view('tamu.create',compact('ruangans','data_tamus'));
+        //
     }
 
     /**
@@ -41,13 +36,7 @@ class PengunjungController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama_tamu' => 'required',
-            'keperluan' => 'required',
-            'ruangans_id' => 'required'
-        ]);
-        Tamu::create($request->all());
-        return redirect('tamu')->with('status','berhasil');
+        //
     }
 
     /**
@@ -69,9 +58,7 @@ class PengunjungController extends Controller
      */
     public function edit($id)
     {
-        $ruangans = Ruangan::all();
-        $tamus = Tamu::with('ruangans')->find($id);
-        return view('tamu.edit',compact('tamus','ruangans'));
+        //
     }
 
     /**
@@ -83,18 +70,7 @@ class PengunjungController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'nama_tamu' => 'required',
-            'keperluan' => 'required',
-            'ruangans_id' => 'required'
-        ]);
-
-        $tamu = Tamu::find($id);
-        $tamu->nama_tamu = $request->nama_tamu;
-        $tamu->keperluan = $request->keperluan;
-        $tamu->ruangans_id = $request->ruangans_id;
-        $tamu->save();
-        return redirect('tamu')->with('status','berhasil');
+        //
     }
 
     /**
@@ -105,8 +81,6 @@ class PengunjungController extends Controller
      */
     public function destroy($id)
     {
-    $tamus = Tamu::find($id);
-    $tamus->delete();
-    return redirect('/tamu')->with('status','berhasil');
+        //
     }
 }

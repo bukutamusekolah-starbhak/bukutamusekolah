@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Tamu;
-use App\Models\Ruangan;
 use App\Models\DataTamu;
+// use App\Models\Tmprifd;
 
-return abort('404');
-class PengunjungController extends Controller
+class Data_tamusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +15,8 @@ class PengunjungController extends Controller
      */
     public function index()
     {
-        $tamus = Tamu::with('ruangans')->paginate();
-        return view('tamu.index',compact('tamus'));
+        $data_tamus = DataTamu::all();
+        return view('data_tamus.index',compact('data_tamus'));
     }
 
     /**
@@ -28,9 +26,8 @@ class PengunjungController extends Controller
      */
     public function create()
     {
-        $ruangans = Ruangan::all();
-        $data_tamus = DataTamu::latest()->paginate();
-        return view('tamu.create',compact('ruangans','data_tamus'));
+        // $tmprifds = Tmprifd::latest()->paginate(1);
+        return view('data_tamus.create');
     }
 
     /**
@@ -42,12 +39,11 @@ class PengunjungController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_tamu' => 'required',
-            'keperluan' => 'required',
-            'ruangans_id' => 'required'
+            'nokartu' => 'required|numeric|min:10',
+            'nama' => 'required'
         ]);
-        Tamu::create($request->all());
-        return redirect('tamu')->with('status','berhasil');
+        DataTamu::create($request->all());
+        return redirect('data_tamus')->with('status','data berhasil terkirim');
     }
 
     /**
@@ -69,9 +65,8 @@ class PengunjungController extends Controller
      */
     public function edit($id)
     {
-        $ruangans = Ruangan::all();
-        $tamus = Tamu::with('ruangans')->find($id);
-        return view('tamu.edit',compact('tamus','ruangans'));
+        $data_tamus = DataTamu::find($id);
+        return view('data_tamus.edit',compact('data_tamus'));
     }
 
     /**
@@ -81,20 +76,17 @@ class PengunjungController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
         $request->validate([
-            'nama_tamu' => 'required',
-            'keperluan' => 'required',
-            'ruangans_id' => 'required'
+            'nokartu' => 'required',
+            'nama' => 'required',
         ]);
-
-        $tamu = Tamu::find($id);
-        $tamu->nama_tamu = $request->nama_tamu;
-        $tamu->keperluan = $request->keperluan;
-        $tamu->ruangans_id = $request->ruangans_id;
-        $tamu->save();
-        return redirect('tamu')->with('status','berhasil');
+        $data_tamus = DataTamu::find($id);
+        $data_tamus->nokartu = $request->nokartu;
+        $data_tamus->nama = $request->nama;
+        $data_tamus->save();
+        return redirect('data_tamus')->with('status','data berhasil di ubah');
     }
 
     /**
@@ -105,8 +97,7 @@ class PengunjungController extends Controller
      */
     public function destroy($id)
     {
-    $tamus = Tamu::find($id);
-    $tamus->delete();
-    return redirect('/tamu')->with('status','berhasil');
+        DataTamu::destroy($id);
+        return redirect('data_tamus')->with('status','data berhasil terhapus');
     }
 }

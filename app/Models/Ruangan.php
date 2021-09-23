@@ -19,4 +19,7 @@ class Ruangan extends Model
     public function tamus(){
         return $this->hasMany(Tamu::class);
     }
+    public function absensis(){
+        return $this->hasMany(Absensi::class);
+    }
 }

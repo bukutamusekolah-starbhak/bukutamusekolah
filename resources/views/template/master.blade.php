@@ -10,6 +10,8 @@
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
     <link rel="stylesheet" href="{{asset('sufee-admin-dashboard-master/vendors/bootstrap/dist/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('sufee-admin-dashboard-master/vendors/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('sufee-admin-dashboard-master/vendors/themify-icons/css/themify-icons.css')}}">
@@ -21,7 +23,8 @@
     <link rel="stylesheet" href="{{asset('sufee-admin-dashboard-master/assets/css/style.css')}}">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.2/css/dataTables.bootstrap5.min.css">
+    @yield('css')
 </head>
 
 <body>
@@ -60,6 +63,7 @@
         </div>   
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="{{asset('sufee-admin-dashboard-master/vendors/jquery/dist/jquery.min.js')}}"></script>
     <script src="{{asset('sufee-admin-dashboard-master/vendors/popper.js/dist/umd/popper.min.js')}}"></script>
     <script src="{{asset('sufee-admin-dashboard-master/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
@@ -70,6 +74,7 @@
     <script src="{{asset('sufee-admin-dashboard-master/vendors/jqvmap/dist/jquery.vmap.min.js')}}"></script>
     <script src="{{asset('sufee-admin-dashboard-master/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
     <script src="{{asset('sufee-admin-dashboard-master/vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
+    @stack('script')
     <script>
         (function($) {
             "use strict";
