@@ -36,12 +36,12 @@
         <h3>Absen {{"Masuk"}}</h3>
         @endif
         @endforeach
-        <p class="text-center mt-2">
+        {{-- <p class="text-center mt-2">
             <img src="{{asset('Bahan Absensi RFID/images/rfid.png')}}"  style="width: 300px;" alt="">
         </p>
         <p class="text-center">
             <img src="{{asset('Bahan Absensi RFID/images/animasi1.gif')}}" alt="">
-        </p>
+        </p> --}}
         <form action="absensi/store" method="POST">
         @csrf
         <div class="mb-3" style="display: none;">
@@ -65,8 +65,8 @@
             </select>
         </div>
         <div class="mb-3">
-            {{-- <label for="nokartu">No Kartu</label> --}}
-            <input type="text"  name="nokartu" id="nokartu" style="opacity: 0;" class="form-control @error('nokartu') is-invalid @enderror" autofocus value="{{old('nokartu')}}">
+            <label for="nokartu">No Kartu</label>
+            <input type="text"  name="nokartu" id="nokartu" class="form-control @error('nokartu') is-invalid @enderror" autofocus value="{{old('nokartu')}}">
             <small class="text-danger">@error('nokartu')
             scan dulu ya
             @enderror
@@ -80,7 +80,7 @@
             </option>
             @endforeach
             </datalist> --}}
-            <button type="submit" class="btn btn-primary" style="background-color:transparent;border:transparent;color:transparent;">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
