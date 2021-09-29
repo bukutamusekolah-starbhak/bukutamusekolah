@@ -32,7 +32,7 @@
             <td>{{$absensi->waktu_kedatangan}}</td>
             <td>
                 @if ($absensi->waktu_kepulangan == NULL)
-                {{"00.00.00"}}
+                {{"00:00:00"}}
                 @else
                 {{$absensi->waktu_kepulangan}}
                 @endif

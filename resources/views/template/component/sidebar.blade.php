@@ -47,9 +47,9 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Absensi</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Rekap Tamu</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="http://127.0.0.1:8000/absensi">Rekap Absen</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="http://127.0.0.1:8000/absensi">Rekap Tamu</a></li>
                         </ul>
                     </li>
                     {{-- <li class="menu-item-has-children dropdown">
