@@ -66,9 +66,9 @@
                     </li>
                     {{-- mode absen di bagi 2 --}}
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Mode Absen</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Tamu Mode</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-line-chart"></i><a href="http://127.0.0.1:8000/status">Mode Absen</a></li>
+                            <li><i class="menu-icon fa fa-line-chart"></i><a href="http://127.0.0.1:8000/status">Tamu Mode</a></li>
                         </ul>
                     </li>
                 </ul>

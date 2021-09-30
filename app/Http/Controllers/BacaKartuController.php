@@ -11,12 +11,16 @@ use App\Models\Ruangan;
 
 class BacaKartuController extends Controller
 {
+    public function __construct(){
+        $this->middleware("auth");
+    }
     public function bacakartu(){
     $statuss = Status::paginate(2);
     $absensis = Absensi::all();
     $ruangans = Ruangan::all();
     // $tmprifds = Tmprifd::all();
-    $data_tamus = DataTamu::latest()->paginate(1);
+    // merubah menjadi sesuai pada huruf nama
+    $data_tamus = DataTamu::orderBy('nama','ASC')->get();
     return view('bacakartu.bacakartu',compact('statuss','data_tamus','absensis','ruangans'));
     }
 }

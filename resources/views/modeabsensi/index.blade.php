@@ -1,12 +1,12 @@
 @extends('template.master')
 
-@section('title','Mode Absensi')
+@section('title','Tamu Mode')
 
-@section('titlesatu','Mode Absensi')
-@section('titledua','Mode Absensi')
+@section('titlesatu','Tamu Mode')
+@section('titledua','Tamu Mode')
 
 @section('content')
-<h1>Mode Absensi</h1>
+<h1>Tamu Mode</h1>
 
 {{-- @foreach ($statuss as $status)
     {{$status->mode_absensi}}
@@ -15,7 +15,7 @@
     <thead>
     <tr>
         <th scope="col">No</th>
-        <th scope="col">Mode Absen</th>
+        <th scope="col">Tamu Mode</th>
         <th scope="col">Aksi</th>
     </tr>
     </thead>

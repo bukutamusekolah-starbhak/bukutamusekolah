@@ -33,7 +33,7 @@
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
         @foreach ($statuss as $status)
         @if($status->mode_absensi == 'masuk')
-        <h3>Absen {{"Masuk"}}</h3>
+        <h3>Tamu {{"Masuk"}}</h3>
         @endif
         @endforeach
         {{-- <p class="text-center mt-2">
@@ -44,11 +44,12 @@
         </p> --}}
         <form action="absensi/store" method="POST">
         @csrf
-        <div class="mb-3" style="display: none;">
+        <div class="mb-3">
             <label for="data_tamus_id" class="form-label">Nama Tamu</label>
             <select class="form-control" aria-label="Default select example" name="data_tamus_id">
                 @foreach ($data_tamus as $data_tamu)
                 <option value="{{$data_tamu->id}}">{{$data_tamu->nama}}</option>
+                <option disabled>Nama dan No Kartu = {{$data_tamu->nama}} : {{$data_tamu->nokartu}}</option>
                 @endforeach
             </select>
         </div>
@@ -86,7 +87,7 @@
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
         @foreach ($statuss as $status)
         @if($status->mode_absensi == 'pulang')
-        <h3>Absen {{"Pulang"}}</h3>
+        <h3>Tamu {{"Pulang"}}</h3>
         @endif
         @endforeach
         <table id="myTable" class="table table-bordered" style="width:100%">
