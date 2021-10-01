@@ -7,6 +7,10 @@ use App\Http\Controllers\Data_tamusController;
 use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\BacaKartuController;
 use App\Http\Controllers\StatusController;
+use Illuminate\Support\Facades\Auth;
+use TCG\Voyager\Facades\Voyager;
+
+// use TCG\Voyager\Voyager;
 
 /*
 |--------------------------------------------------------------------------

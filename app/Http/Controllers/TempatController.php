@@ -96,3 +96,4 @@ class TempatController extends Controller
         return redirect('ruangan')->with('status','data berhasil di hapus');
     }
 }
+?>
