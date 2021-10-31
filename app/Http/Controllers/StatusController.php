@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Status;
 
+return abort("404");
 class StatusController extends Controller
 {
     /**

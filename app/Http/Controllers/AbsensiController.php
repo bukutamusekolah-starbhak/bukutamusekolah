@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Absensi;
+use App\Models\DataTamu;
+use App\Models\Ruangan;
 use App\Exports\AbsensiExport;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -14,13 +16,12 @@ class AbsensiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct(){
-        $this->middleware("auth");
-    }
+    // public function __construct(){
+    //     $this->middleware("auth");
+    // }
     public function index()
     {
-        $absensis = Absensi::with('data_tamus')->latest()->paginate();
-        return view('absensi.index',compact('absensis'));
+        return Absensi::with('ruangans','data_tamus')->get();
     }
     /**
      * Show the form for creating a new resource.
@@ -58,10 +59,10 @@ class AbsensiController extends Controller
         if ($request->nokartu == $absensi->data_tamus->nokartu) {
             $absensi->nokartu = $request->nokartu;
             $absensi->save();
-            return redirect('bacakartu')->with('status','selamat datang');
+            // return redirect('bacakartu')->with('status','selamat datang');
         } else {
             $absensi->nokartu = $request->nokartu;
-            return redirect('bacakartu')->with('erorr','maaf kartu tidak terdaftar');
+            // return redirect('bacakartu')->with('erorr','maaf kartu tidak terdaftar');
         }
         // return redirect('bacakartu')->with('status','selamat datang');
     }
@@ -74,7 +75,8 @@ class AbsensiController extends Controller
      */
     public function show($id)
     {
-        //
+        $absensis = Absensi::find($id);
+        return response()->json($absensis);
     }
 
     /**
@@ -95,22 +97,14 @@ class AbsensiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update()
     {
         date_default_timezone_set('Asia/Jakarta');
-        $absensi = Absensi::findorfail($id);
-        // $absensi->nokartu = $request->nokartu;
-        if ($request->nokartu == $absensi->data_tamus->nokartu) {
-            $absensi->nokartu = $request->nokartu;
-            $absensi->waktu_kepulangan = date('H:i:s');
-            $absensi->save();
-            return redirect('bacakartu')->with('status','selamat jalan dan hati hati di jalan');
-        } else {
-            $absensi->nokartu = $request->nokartu;
-            return redirect('bacakartu')->with('erorr','maaf kartu tidak terdaftar');
-        }
-        // $absensi->save();
-        // return redirect('bacakartu')->with('status','selamat jalan hati hati di jalan');
+        $absensis = Absensi::find(request()->id);
+        $absensis->data_tamus_id = request()->data_tamus_id;
+        $absensis->nokartu = request()->nokartu;
+        $absensis->waktu_kepulangan = date('H:i:s');
+        $absensis->update();
     }
 
     /**

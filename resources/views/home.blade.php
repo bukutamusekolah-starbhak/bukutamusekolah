@@ -1,21 +1,34 @@
-@extends('template.master')
+<!DOCTYPE html>
+<html lang="en">
+{{-- for head --}}
+<head>
+    @include('Template.head')
+    <title>Buku Tamu Smk Taruna Bhakti</title>
+</head>
+{{-- end head --}}
+<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper" id="welcome">
 
-@section('title','Dashboard Home')
+<!-- for Navbar -->
+@include('Template.navbar')
+<!-- end /.navbar -->
 
-@section('titlesatu','Dashboard Home')
-@section('titledua','Dashboard Home')
+<!-- Main Sidebar Container -->
+@include('Template.sidebar')
+{{-- end Sidebar Container --}}
 
-@section('content')
-{{-- card header --}}
-<div class="card-header">{{ __('Dashboard') }}</div>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper pt-5">
+<div class="container-fluid">
+    <router-view></router-view>
+</div>
+</div>
+<!-- end /.content-wrapper -->
+@include('Template.footer')
+</div>
+<!-- ./wrapper -->
 
-<div class="card-body">
-    @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
-    {{Auth::user()->name}}
-    {{ __('You are logged in!') }}
-    {{-- end section  --}}
-@endsection
+<!-- jQuery -->
+<script src="{{asset('js/app.js')}}"></script>
+</body>
+</html>

@@ -7,9 +7,6 @@ use App\Models\Ruangan;
 
 class TempatController extends Controller
 {
-    public function __construct(){
-        $this->middleware("auth");
-    }
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +14,9 @@ class TempatController extends Controller
      */
     public function index()
     {
-        $ruangans = Ruangan::all();
-        return view('ruangan.index',compact('ruangans'));
+        // $ruangans = Ruangan::all();
+        // return view('ruangan.index',compact('ruangans'));
+        return Ruangan::all();
     }
 
     /**
@@ -26,10 +24,10 @@ class TempatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('ruangan.create');
-    }
+    // public function create()
+    // {
+    //     return view('ruangan.create');
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -39,11 +37,9 @@ class TempatController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama_ruangan' => 'required'
-        ]);
-        Ruangan::create($request->all());
-        return redirect('ruangan')->with('status','Ruangan Berhasil Di Tambah');
+        $ruangans = new Ruangan;
+        $ruangans->nama_ruangan = $request->nama_ruangan;
+        $ruangans->save();
     }
 
     /**
@@ -54,7 +50,20 @@ class TempatController extends Controller
      */
     public function show($id)
     {
-        //
+        $ruangans = Ruangan::find($id);
+        if ($ruangans) {
+            return response()->json([
+                "success" => true,
+                "message" => "data ada",
+                'data' => $ruangans
+            ],200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Data Tamu Tidak Ditemukan!',
+                'data'    => ''
+            ], 404);
+        }
     }
 
     /**
@@ -63,11 +72,13 @@ class TempatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $ruangans = Ruangan::find($id);
-        return view('ruangan.edit',compact('ruangans'));
-    }
+    // public function edit($id)
+    // {
+    //     $ruangans = Ruangan::find($id);
+    //     return response()->json([
+    //         'ruangans' => $ruangans
+    //     ],200);
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -81,7 +92,6 @@ class TempatController extends Controller
         $ruangans = Ruangan::find($id);
         $ruangans->nama_ruangan = $request->nama_ruangan;
         $ruangans->save();
-        return redirect('ruangan')->with('status','Ruangan Berhasil di edit');
     }
 
     /**
@@ -92,8 +102,19 @@ class TempatController extends Controller
      */
     public function destroy($id)
     {
-        Ruangan::destroy($id);
-        return redirect('ruangan')->with('status','data berhasil di hapus');
+        $ruangans = Ruangan::find($id);
+        $ruangans->delete();
+        if ($ruangans) {
+            return response()->json([
+                'success' => true,
+                'message' => 'ruangans Berhasil Dihapus!',
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'ruangans Gagal Dihapus!',
+            ], 500);
+        }
     }
 }
 ?>
