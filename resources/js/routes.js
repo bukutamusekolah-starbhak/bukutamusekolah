@@ -6,6 +6,7 @@ import CreateRuangan from './components/ruangan/CreateRuangan.vue';
 import EditRuangan from './components/ruangan/EditRuangan.vue';
 import ScanTamu from './components/scantamu/ScanTamu.vue';
 import RekapTamu from './components/rekaptamu/RekapTamu.vue';
+import Dashboard from './components/dashboard/Dashboard.vue';
 
 // export const routes = [
 //     {path:'/data_tamus',component:require('./components/data_tamus/DataTamu.vue').default},
@@ -54,5 +55,10 @@ export const routes = [
     name:'rekaptamu',
     path:'/rekaptamu',
     component:RekapTamu
+},
+{
+    name:'dashboard',
+    path:'/dashboard',
+    component:Dashboard
 }
 ]

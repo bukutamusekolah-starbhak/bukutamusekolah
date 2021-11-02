@@ -88,17 +88,6 @@
                     </router-link>
                 </li>
             </ul>
-            <li class="nav-item text-center btn btn-danger w-100">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <a href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </a>
-            </li>
         </li>
         </li>
         </li>
