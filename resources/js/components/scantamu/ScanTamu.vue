@@ -135,9 +135,18 @@ methods:{
             data_tamus_id:this.absensis.data_tamus_id,
             ruangans_id:this.absensis.ruangans_id,
         })
-    if (this.absensis.tanggal == null && this.absensis.nokartu == null && this.absensis.keperluan == null && this.absensis.data_tamus_id == null && this.absensis.ruangans_id == null) {
-        alert("tolong di isi semua",window.location.href = "/scantamu")
+    if (this.absensis.data_tamus_id == null) {
+        alert("help select data guest")
     } 
+    if (this.absensis.keperluan == null) {
+    alert("please write your necessity")
+    } 
+    if (this.absensis.ruangans_id == null) {
+    alert("help select ruangan")
+    } 
+    if (this.absensis.nokartu == null) {
+    alert("please scan your card")
+    }
     else {
     this.nokartu = "";
     this.keperluan="";

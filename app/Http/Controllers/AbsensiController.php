@@ -101,10 +101,16 @@ class AbsensiController extends Controller
     {
         date_default_timezone_set('Asia/Jakarta');
         $absensis = Absensi::find(request()->id);
-        $absensis->data_tamus_id = request()->data_tamus_id;
-        $absensis->nokartu = request()->nokartu;
-        $absensis->waktu_kepulangan = date('H:i:s');
-        $absensis->update();
+        if (request()->nokartu == $absensis->data_tamus->nokartu) {
+            $absensis->data_tamus_id = request()->data_tamus_id;
+            $absensis->nokartu = request()->nokartu;
+            $absensis->waktu_kepulangan = date('H:i:s');
+            $absensis->update();
+            // return redirect('bacakartu')->with('status','selamat jalan dan hati hati di jalan');
+        } else {
+            $absensis->nokartu = request()->nokartu;
+            // return redirect('bacakartu')->with('erorr','maaf kartu tidak terdaftar');
+        }
     }
 
     /**
