@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 // use App\http\controllers\yourcontroller
+use App\Http\Controllers\AbsensiController;
+use App\http\Controllers\ChartsController;
 use App\Http\Controllers\WelcomeController;
+use App\Models\Absensi;
 use Illuminate\Support\Facades\Auth;
 use TCG\Voyager\Facades\Voyager;
 
@@ -30,3 +33,11 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // untuk home
+
+// routing for chart
+Route::get('charts', [ChartsController::class,'charts']);
+// end
+
+// excel absensis
+Route::get('absensis/export_excel',[AbsensiController::class,'export_excel']);
+// end absensis excel

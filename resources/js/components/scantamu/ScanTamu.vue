@@ -14,6 +14,12 @@
                     <option v-for="data_tamu in data_tamus" :key="data_tamu.id" :value="data_tamu.id">{{data_tamu.nama}}</option>
                 </select>
             </div>
+            <!-- <div class="mb-3">
+                <label for="data_tamus_id" class="form-label">No Kartu</label>
+                <select class="form-select form-control" v-model="absensis.data_tamus_id">
+                    <option v-for="data_tamu in data_tamus" :key="data_tamu.id" :value="data_tamu.id">{{data_tamu.nokartu}}</option>
+                </select>
+            </div> -->
             <div class="mb-3">
             <label for="keperluan" class="form-label">Keperluan</label>
             <textarea class="form-control" id="keperluan" v-model="absensis.keperluan" rows="3"></textarea>
@@ -24,14 +30,25 @@
                 <option v-for="ruangan in ruangans" :key="ruangan.id" :value="ruangan.id">{{ruangan.nama_ruangan}}</option>
                 </select>
             </div>
-            <div class="mb-3">
-            <label for="nokartu" class="form-label">Scan No kartu</label>
-            <b-form-input list="my-list-id" v-model="absensis.nokartu"></b-form-input>
-            <datalist id="my-list-id">
-                <!-- <option>Manual Option</option> -->
-            <option v-for="data_tamu in data_tamus" :key="data_tamu.id">{{data_tamu.nokartu}}</option>
-            </datalist>
+            <div class="row">
+                <div class="col-sm-6">
+                <div class="mb-3">
+                <label for="data_tamus_id" class="form-label">No Kartu</label>
+                <select class="form-select form-control" v-model="absensis.data_tamus_id">
+                    <option v-for="data_tamu in data_tamus" :key="data_tamu.id" :value="data_tamu.id" disabled>{{data_tamu.nokartu}}</option>
+                </select>
+                </div>  
+                </div>
+                <div class="col-sm-6">
+                <label for="nokartu" class="form-label">Scan No kartu</label>
+                <b-form-input list="my-list-id" v-model="absensis.nokartu"></b-form-input>
+                <datalist id="my-list-id">
+                    <!-- <option>Manual Option</option> -->
+                <option v-for="data_tamu in data_tamus" :key="data_tamu.id">{{data_tamu.nokartu}}</option>
+                </datalist>
+                </div>
             </div>
+            <p>Note : jika data berhasil ditambahkan tetapi no kartu berbeda dari nama pengunjung maka tidak akan terdaftar di database</p>
             <button type="submit" class="btn btn-primary">Submit</button>
             </form>
             </b-tab>
@@ -148,11 +165,11 @@ methods:{
     alert("please scan your card")
     }
     else {
-    this.nokartu = "";
-    this.keperluan="";
-    this.data_tamus_id="";
-    this.ruangans_id="";
-    alert('data berhasil di tambahkan',window.location.href = "/scantamu")
+    this.absensis.nokartu = "";
+    this.absensis.keperluan="";
+    this.absensis.data_tamus_id="";
+    this.absensis.ruangans_id="";
+    alert('data berhasil di tambahkan',window.location.href = "/home#/scantamu")
     }
     },
     editTamu(id){
@@ -171,7 +188,8 @@ methods:{
             nokartu : this.editnokartu,
             data_tamus_id:this.editdatatamusid
         })
-        alert('selamat jalan dan hati2 di jalan',window.location.assign("/scantamu"))
+        $("#exampleModal").modal("hide")
+        alert('selamat jalan dan hati2 di jalan',window.location.assign("/home#/scantamu"))
     }
 },
 created(){

@@ -16,7 +16,7 @@
     <td>{{ruangan.nama_ruangan}}</td>
     <td>
         <router-link :to="{name: 'editruangan', params: { id: ruangan.id }}" class="btn btn-success">Edit</router-link>
-        <button @click="hapusRuangan(ruangan.id)" class="btn btn-danger">Hapus</button>
+        <button @click.prevent="hapusRuangan(ruangan.id,index)" class="btn btn-danger">Hapus</button>
     </td>
     </tr>
 </tbody>
@@ -35,9 +35,12 @@ export default {
         loadData(){
             axios.get('api/ruangans').then(({data}) => (this.ruangans = data));
         },
-        hapusRuangan(id){
-            axios.delete('api/ruangans/'+id)
-            alert("data berhasil di hapus",window.location.href = "/ruangan")
+        hapusRuangan(id,index)
+        {
+            this.axios.delete(`http://localhost:8000/api/ruangans/${id}`)
+            .then(response => {
+                this.ruangans.splice(index,1);
+            })
         }
     },
     created(){

@@ -27,7 +27,7 @@ class HomeController extends Controller
         // return view('home');
         // untuk mengatur halaman setelah login
         $role = Auth::user()->role_id;
-        if (Auth::user()->role_id == 2) {
+        if (Auth::user()->role_id == 3) {
             return view('home');
         }else {
             return redirect('admin');

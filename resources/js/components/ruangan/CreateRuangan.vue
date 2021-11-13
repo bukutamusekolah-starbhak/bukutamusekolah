@@ -27,7 +27,7 @@ export default {
     if (this.nama_ruangan == '') {
         alert('tolong masukan nama ruangan terlebih dahulu   ',window.location.href = "/createruangan")
     }else{
-    alert(this.nama_ruangan,window.location.href = "/ruangan")
+    alert(this.nama_ruangan,window.location.href = "/home#/ruangan")
     this.nama_ruangan = "";
     }
     }

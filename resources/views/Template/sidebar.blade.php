@@ -13,7 +13,7 @@
         <img src="https://adminlte.io/themes/v3/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
     </div>
     <div class="info">
-        <a href="#" class="d-block">{{Auth::user()->name}}</a>
+        <a href="/home" class="d-block">{{Auth::user()->name}}</a>
     </div>
     </div>
 
@@ -24,7 +24,7 @@
             with font-awesome or any other icon font library -->
         <li class="nav-item">
         <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <i class="nav-icon fas fa-users"></i>
             <p>
             Tamu
             <i class="right fas fa-angle-left"></i>
@@ -40,7 +40,7 @@
         </ul>
         <li class="nav-item">
             <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-chart-pie"></i>
+            <i class="nav-icon fas fa-door-open"></i>
             <p>
                 Ruangan
                 <i class="right fas fa-angle-left"></i>
@@ -88,6 +88,14 @@
                     </router-link>
                 </li>
             </ul>
+        </li>
+        <li class="nav-item">
+            <a href="/charts" class="nav-link">
+            <i class="nav-icon fas fa-chart-bar"></i>
+            <p>
+                Chart-Tamu dan excel
+            </p>
+            </a>
         </li>
         </li>
         </li>
