@@ -22,7 +22,7 @@ use TCG\Voyager\Facades\Voyager;
 |
 */
 // routing welcome dengan controller welcomecontroller
-Route::get('/', [WelcomeController::class,'index']);
+// Route::get('/', [WelcomeController::class,'index']);
 
 // routing laravel voyager
 Route::group(['prefix' => 'admin'], function () {
@@ -31,7 +31,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 // routing setelah login autentikasi
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // untuk home
 
 // routing for chart

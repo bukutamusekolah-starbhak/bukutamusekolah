@@ -43,7 +43,7 @@
         <img src="https://adminlte.io/themes/v3/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-        <a href="/home" class="d-block">{{Auth::user()->name}}</a>
+        <a href="/" class="d-block">{{Auth::user()->name}}</a>
         </div>
     </div>
 
@@ -59,7 +59,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="/home" class="nav-link">
+            <a href="/" class="nav-link">
             <i class="nav-icon fas fa-home red"></i>
             <p>
                 Home

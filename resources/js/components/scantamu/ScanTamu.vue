@@ -169,7 +169,7 @@ methods:{
     this.absensis.keperluan="";
     this.absensis.data_tamus_id="";
     this.absensis.ruangans_id="";
-    alert('data berhasil di tambahkan',window.location.href = "/home#/scantamu")
+    alert('data berhasil di tambahkan',window.location.reload("/#/scantamu"))
     }
     },
     editTamu(id){
@@ -188,8 +188,8 @@ methods:{
             nokartu : this.editnokartu,
             data_tamus_id:this.editdatatamusid
         })
-        $("#exampleModal").modal("hide")
-        alert('selamat jalan dan hati2 di jalan',window.location.assign("/home#/scantamu"))
+        // $("#exampleModal").modal("hide")
+        alert('selamat jalan dan hati2 di jalan',window.location.reload("/#/scantamu"))
     }
 },
 created(){

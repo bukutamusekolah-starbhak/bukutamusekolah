@@ -7,6 +7,7 @@ import EditRuangan from './components/ruangan/EditRuangan.vue';
 import ScanTamu from './components/scantamu/ScanTamu.vue';
 import RekapTamu from './components/rekaptamu/RekapTamu.vue';
 import Dashboard from './components/dashboard/Dashboard.vue';
+import NotFound from './components/Pagenotfound/404notfound.vue';
 
 // export const routes = [
 //     {path:'/data_tamus',component:require('./components/data_tamus/DataTamu.vue').default},
@@ -58,7 +59,12 @@ export const routes = [
 },
 {
     name:'dashboard',
-    path:'/dashboard',
+    path:'/',
     component:Dashboard
+},
+{
+    name:'pagenotfound',
+    path:'*',
+    component:NotFound
 }
 ]

@@ -29,9 +29,6 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script>
-    window.location.href = "/home#/dashboard"
-</script>
 <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>
