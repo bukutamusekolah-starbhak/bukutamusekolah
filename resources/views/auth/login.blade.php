@@ -42,26 +42,29 @@
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <input class="form-check-input" type="checkbox" onclick="togglepasswordvisibility()" name="remember" id="remember">
 
-                                    <label class="form-check-label" for="remember">
+                                    {{-- <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
+                                    </label> --}}
+                                    <label class="form-check-label" for="password">
+                                        {{ __('See Pasword') }}
                                     </label>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary btn btn-block">
                                     {{ __('Login') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
+                                {{-- @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                                @endif
+                                @endif --}}
                             </div>
                         </div>
                     </form>
@@ -70,4 +73,15 @@
         </div>
     </div>
 </div>
+
+<script>
+    const passwordinput = document.getElementById("password");
+    const togglepasswordvisibility = () => {
+        if (passwordinput.type === "password") {
+            passwordinput.type = "text";
+        } else {
+            passwordinput.type = "password";
+        }
+    }
+</script>
 @endsection
