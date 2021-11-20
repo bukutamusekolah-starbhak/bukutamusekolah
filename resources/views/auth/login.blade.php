@@ -39,20 +39,20 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" onclick="togglepasswordvisibility()" name="remember" id="remember">
+                        {{-- <div class="form-group row"> --}}
+                            {{-- <div class="col-md-6 offset-md-4"> --}}
+                                {{-- <div class="form-check"> --}}
+                                    {{-- <input class="form-check-input" type="checkbox" onclick="togglepasswordvisibility()" name="remember" id="remember"> --}}
 
                                     {{-- <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label> --}}
-                                    <label class="form-check-label" for="password">
+                                    {{-- <label class="form-check-label" for="password">
                                         {{ __('See Pasword') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                                    </label> --}}
+                                {{-- </div> --}}
+                            {{-- </div> --}}
+                        {{-- </div> --}}
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
