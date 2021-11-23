@@ -35,18 +35,8 @@
             <iframe src="https://www.jadwalsholat.org/jadwal-sholat/monthly.php?id=67" style="height:300px;width:100%;"></iframe>
             </p>
             </div>
-            <div class="col-sm-6 bg-dark text-white" style="height:375px;">
-            <h3 class="pt-2 pb-2">Website ini di buat dengan :</h3>
-            <div class="row">
-            <div class="col-md-12 text-center pb-2 pt-2">
-            <i class="fab fa-laravel red fa-4x"></i>
-            <p class="text-danger">Laravel</p>
-            <i class="fab fa-vuejs green fa-4x"></i>
-            <p class="text-success">Vue Js</p>
-            <i class="fab fa-bootstrap purple fa-4x"></i>
-            <p style="color:#9561e2;">Boostrap 5</p>
-            </div>
-            </div>
+            <div class="col-sm-6">
+                <iframe src="https://public.domo.com/cards/bWxVg" style="height:376px;width:100%;"></iframe>
             </div>
         </div>
     </div>
