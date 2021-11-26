@@ -30,7 +30,7 @@ export default {
             this.axios.put(uri,this.ruangans)
             .then((response)=>{
                 this.$router.push({name:'ruangan'})
-            window.location.href = "/home#/ruangan"
+            // window.location.href = "/home#/ruangan"
             })
         }
     }
