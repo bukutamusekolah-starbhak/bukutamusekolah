@@ -24,7 +24,7 @@
     <td>{{absensi.ruangans.nama_ruangan}}</td>
     <td>{{absensi.waktu_kedatangan}}</td>
     <td v-if="absensi.waktu_kepulangan == null">
-    <button class="btn btn-danger">di area LS</button>
+    <button class="btn btn-danger">in school</button>
     </td>
     <td v-else>{{absensi.waktu_kepulangan}}</td>
 </tr>

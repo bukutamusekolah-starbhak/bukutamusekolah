@@ -31,15 +31,7 @@
                 </select>
             </div>
             <div class="row">
-                <div class="col-sm-6">
-                <div class="mb-3">
-                <label for="data_tamus_id" class="form-label">No Kartu</label>
-                <select class="form-select form-control" v-model="absensis.data_tamus_id">
-                    <option v-for="data_tamu in data_tamus" :key="data_tamu.id" :value="data_tamu.id" disabled>{{data_tamu.nokartu}}</option>
-                </select>
-                </div>  
-                </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                 <label for="nokartu" class="form-label">Scan No kartu</label>
                 <b-form-input list="my-list-id" v-model="absensis.nokartu"></b-form-input>
                 <datalist id="my-list-id">
@@ -48,8 +40,7 @@
                 </datalist>
                 </div>
             </div>
-            <p>Note : jika data berhasil ditambahkan tetapi no kartu berbeda dari nama pengunjung maka tidak akan terdaftar di database</p>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary my-3">Submit</button>
             </form>
             </b-tab>
             <b-tab title="Pulang">
@@ -145,30 +136,30 @@ methods:{
     },
     SaveTamu(){
         axios.post('api/absensis',{
-            tanggal:this.absensis.tanggal,
+            // tanggal:this.absensis.tanggal,
             nokartu:this.absensis.nokartu,
             keperluan:this.absensis.keperluan,
-            waktu_kedatangan:this.absensis.waktu_kedatangan,
+            // waktu_kedatangan:this.absensis.waktu_kedatangan,
             data_tamus_id:this.absensis.data_tamus_id,
             ruangans_id:this.absensis.ruangans_id,
         })
     if (this.absensis.data_tamus_id == null) {
-        alert("help select data guest")
+        alert("pilih data tamu")
     } 
     if (this.absensis.keperluan == null) {
-    alert("please write your necessity")
+    alert("isi keperluan anda")
     } 
     if (this.absensis.ruangans_id == null) {
-    alert("help select ruangan")
+    alert("pilih ruangan yang anda kunjungi")
     } 
     if (this.absensis.nokartu == null) {
-    alert("please scan your card")
+    alert("scan no kartu")
     }
     else {
-    this.absensis.nokartu = "";
-    this.absensis.keperluan="";
     this.absensis.data_tamus_id="";
+    this.absensis.keperluan="";
     this.absensis.ruangans_id="";
+    this.absensis.nokartu = "";
     alert('data berhasil di tambahkan',window.location.reload("/#/scantamu"))
     }
     },
