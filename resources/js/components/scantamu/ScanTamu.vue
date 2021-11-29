@@ -136,24 +136,16 @@ methods:{
     },
     SaveTamu(){
         axios.post('api/absensis',{
-            // tanggal:this.absensis.tanggal,
-            nokartu:this.absensis.nokartu,
-            keperluan:this.absensis.keperluan,
-            // waktu_kedatangan:this.absensis.waktu_kedatangan,
             data_tamus_id:this.absensis.data_tamus_id,
+            keperluan:this.absensis.keperluan,
             ruangans_id:this.absensis.ruangans_id,
+            nokartu:this.absensis.nokartu
         })
-    if (this.absensis.data_tamus_id == null) {
+    if (this.absensis.data_tamus_id == null || this.absensis.keperluan == null || this.absensis.ruangans_id == null || this.absensis.nokartu == null) {
         alert("pilih data tamu")
-    } 
-    if (this.absensis.keperluan == null) {
-    alert("isi keperluan anda")
-    } 
-    if (this.absensis.ruangans_id == null) {
-    alert("pilih ruangan yang anda kunjungi")
-    } 
-    if (this.absensis.nokartu == null) {
-    alert("scan no kartu")
+        alert("isi keperluan anda")
+        alert("pilih ruangan yang anda kunjungi")
+        alert("scan no kartu")
     }
     else {
     this.absensis.data_tamus_id="";
