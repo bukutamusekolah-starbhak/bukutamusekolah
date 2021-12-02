@@ -39,6 +39,7 @@
                 <option v-for="data_tamu in data_tamus" :key="data_tamu.id">{{data_tamu.nokartu}}</option>
                 </datalist>
                 </div>
+                <small class="text-danger">jika sudah scan kalau nama tamu dengan kartu tamu tidak sama maka tidak akan masuk di database walaupun muncul status berhasil</small>
             </div>
             <button type="submit" class="btn btn-primary my-3">Submit</button>
             </form>
