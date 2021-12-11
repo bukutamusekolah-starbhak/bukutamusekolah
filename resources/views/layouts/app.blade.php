@@ -81,3 +81,16 @@
     </div>
 </body>
 </html>
+
+<style>
+    body{
+        background-image: url("pintudepan.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    main{
+        /* display: none */
+        margin-top: 23ex;
+        margin-bottom: 23ex;
+    }
+</style>

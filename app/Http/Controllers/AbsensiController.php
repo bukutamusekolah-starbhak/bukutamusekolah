@@ -45,7 +45,7 @@ class AbsensiController extends Controller
             'nokartu' => 'required|numeric',
             'keperluan'=>'required'
         ]);
-        $time_now = time();
+        // $time_now = time();
         date_default_timezone_set('Asia/Jakarta');
         $absensi = new Absensi;
         $absensi->tanggal = date('Y-m-d');

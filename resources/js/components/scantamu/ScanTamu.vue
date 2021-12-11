@@ -33,11 +33,7 @@
             <div class="row">
                 <div class="col-sm-12">
                 <label for="nokartu" class="form-label">Scan No kartu</label>
-                <b-form-input list="my-list-id" v-model="absensis.nokartu"></b-form-input>
-                <datalist id="my-list-id">
-                    <!-- <option>Manual Option</option> -->
-                <option v-for="data_tamu in data_tamus" :key="data_tamu.nokartu">{{data_tamu.nokartu}}</option>
-                </datalist>
+                <input type="number" v-model="absensis.nokartu" class="form-control">
                 </div>
                 <!-- <small class="text-danger">jika sudah scan kalau nama tamu dengan kartu tamu tidak sama maka tidak akan masuk di database walaupun muncul status berhasil</small> -->
             </div>
