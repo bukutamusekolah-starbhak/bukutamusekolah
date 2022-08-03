@@ -26,7 +26,10 @@ export default {
         let uri = `http://localhost:8000/api/data_tamus/${this.$route.params.id}`;
         this.axios.get(uri).then((response)=>{
             this.data_tamus = response.data.data;
-        });
+        }).catch(function (error) {
+            // alert(error);
+            window.location.assign("/#/404")
+        })
     },
     methods:{
         DataTamuUpdate(){

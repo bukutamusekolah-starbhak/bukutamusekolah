@@ -31,7 +31,8 @@ class AbsensiExport implements FromCollection,ShouldAutoSize,WithMapping,WithHea
             $absensis->keperluan,
             $absensis->ruangans->nama_ruangan,
             $absensis->waktu_kedatangan,
-            $absensis->waktu_kepulangan
+            $absensis->waktu_kepulangan,
+            $absensis->keterangan_kartu
         ];
     }
     public function headings(): array
@@ -42,14 +43,15 @@ class AbsensiExport implements FromCollection,ShouldAutoSize,WithMapping,WithHea
             'Keperluan',
             'Tujuan Ruangan',
             'Waktu Kedatangan',
-            'Waktu Kepulangan'
+            'Waktu Kepulangan',
+            'Keterangan kartu'
         ];
     }
     public function registerEvents(): array
     {
         return [
             AfterSheet::class => function (AfterSheet $event) {
-                $event->sheet->getStyle('A1:F17')->applyFromArray([
+                $event->sheet->getStyle('A1:G17')->applyFromArray([
                     'font' => [
                         // 'bold' => true,
                         'name'=> 'Calibri'

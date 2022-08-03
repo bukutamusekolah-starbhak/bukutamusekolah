@@ -31,12 +31,12 @@
         <div class="row mt-3 mb-3">
             <div class="col-sm-6">
             <p style="text-align: center;">
-            <iframe src="https://jam.jadwalsholat.org/digitalclock/" class="w-100" style="height:70px;"></iframe>
-            <iframe src="https://www.jadwalsholat.org/jadwal-sholat/monthly.php?id=67" style="height:300px;width:100%;"></iframe>
+            <iframe src="https://jam.jadwalsholat.org/digitalclock/" class="w-100" style="height:70px; border: 1px solid #ddd;"></iframe>
+            <iframe id="iframe" title="prayerWidget" class="widget-m-top" style=" height: 300px; width:100%; border: 1px solid #ddd;" src="https://www.islamicfinder.org/prayer-widget/6605829/shafi/11/0/20.0/18.0"></iframe>
             </p>
             </div>
             <div class="col-sm-6">
-                <iframe src="https://public.domo.com/cards/bWxVg" style="height:376px;width:100%;"></iframe>
+                <iframe src="https://ourworldindata.org/grapher/total-cases-covid-19?tab=map" width="100%" style="border:none;" height="376px"></iframe>
             </div>
         </div>
     </div>

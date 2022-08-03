@@ -32,7 +32,7 @@
         </a>
         <ul class="nav nav-treeview">
             <li class="nav-item">
-            <router-link to="data_tamus" class="nav-link">
+            <router-link to="/data_tamus" class="nav-link">
                 <i class="fas fa-user-tie green"></i>
                 <p>Data Tamu</p>
             </router-link>
@@ -48,7 +48,7 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <router-link to="ruangan" class="nav-link">
+                    <router-link to="/ruangan" class="nav-link">
                         <i class="fas fa-school blue"></i>
                         <p>Data Ruangan</p>
                     </router-link>
@@ -65,7 +65,7 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <router-link to="scantamu" class="nav-link">
+                    <router-link to="/scantamu" class="nav-link">
                         <i class="fas fa-address-card orange"></i>
                         <p>Scan Tamu</p>
                     </router-link>
@@ -82,7 +82,7 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <router-link to="rekaptamu" class="nav-link">
+                    <router-link to="/rekaptamu" class="nav-link">
                         <i class="fas fa-book-open pink"></i>
                         <p>laporan tamu</p>
                     </router-link>

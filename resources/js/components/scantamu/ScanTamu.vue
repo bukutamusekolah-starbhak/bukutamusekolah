@@ -7,10 +7,12 @@
         <b-tabs pills card>
             <b-tab title="Datang" active>
             <h2>Scan Datang</h2>
+            <p>Silahkan scan kartu dan sesuaikan dengan nama yang dipilih</p>
             <form @submit.prevent="SaveTamu()">
             <div class="mb-3">
                 <label for="data_tamus_id" class="form-label">Pilih Nama</label>
                 <select class="form-select form-control" v-model="absensis.data_tamus_id">
+                    <!-- <option disabled selected>Silahkan pilih no kartu dan nama</option> -->
                     <option v-for="data_tamu in data_tamus" :key="data_tamu.id" :value="data_tamu.id">{{data_tamu.nama}}</option>
                 </select>
             </div>
@@ -42,6 +44,7 @@
             </b-tab>
             <b-tab title="Pulang">
             <h2>Scan Pulang</h2>
+            <p class="text-danger">table yang berwarna merah dan tulisan Data Tidak Valid menandakan nama dan kartu tidak sesuai</p>
             <table class="table table-bordered table table-hover">
             <thead>
             <tr>
@@ -53,11 +56,16 @@
             </thead>
             <tbody>
             <tr v-for="(absensi, index) in absensis" :key="absensi.id">
-            <th scope="row">{{index+1}}</th>
-            <td>{{absensi.data_tamus.nama}}</td>
-            <td>{{absensi.nokartu}}</td>
+            <th scope="row" v-if="absensi.keterangan_kartu != 'INVALID'">{{index+1}}</th>
+            <th scope="row" v-else class="bg-danger">{{index+1}}</th>
+            <td v-if="absensi.keterangan_kartu != 'INVALID'">{{absensi.data_tamus.nama}}</td>
+            <td v-else class="bg-danger">{{absensi.data_tamus.nama}}</td>
+            <td v-if="absensi.keterangan_kartu != 'INVALID'">{{absensi.nokartu}}</td>
+            <td v-else class="bg-danger">{{absensi.nokartu}}</td>
             <td v-if="absensi.waktu_kepulangan == null">
-            <button type="button" class="btn btn-success" @click="editTamu(absensi.id)" data-toggle="modal" data-target="#exampleModal">Scan Tamu Pulang</button>
+            <button type="button" class="btn btn-success" v-if="absensi.keterangan_kartu != 'INVALID'" @click="editTamu(absensi.id)" data-toggle="modal" data-target="#exampleModal">Scan Tamu Pulang</button>
+            <span v-else class="text-danger text-capitalize">data tidak valid</span>
+            <!-- <button type="button" class="btn btn-success" v-else disabled @click="editTamu(absensi.id)" data-toggle="modal" data-target="#exampleModal" >Scan Tamu Pulang</button> -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

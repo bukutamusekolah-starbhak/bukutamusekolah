@@ -32,6 +32,11 @@
         </style>
     </head>
     <body class="antialiased">
+        @if (session('erorr'))
+            <div class="alert alert-danger">
+                {{ session('erorr') }}
+            </div>
+        @endif
             <div id="welcome" class="mt-4 pt-4">
             <center>
                 <img src="{{asset('sekolahtb.jpg')}}" alt="" class="w-25 mt-5 pt-5">

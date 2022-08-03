@@ -58,10 +58,13 @@ class AbsensiController extends Controller
         // $absensi->save();
         if ($request->nokartu == $absensi->data_tamus->nokartu) {
             $absensi->nokartu = $request->nokartu;
+            $absensi->keterangan_kartu = "VALID";
             $absensi->save();
             // return redirect('bacakartu')->with('status','selamat datang');
         } else {
             $absensi->nokartu = $request->nokartu;
+            $absensi->keterangan_kartu = "INVALID";
+            $absensi->save();
             // return redirect('bacakartu')->with('erorr','maaf kartu tidak terdaftar');
         }
         // return redirect('bacakartu')->with('status','selamat datang');

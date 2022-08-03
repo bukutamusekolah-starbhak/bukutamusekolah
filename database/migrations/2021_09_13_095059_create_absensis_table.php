@@ -19,6 +19,7 @@ class CreateAbsensisTable extends Migration
             $table->date('tanggal');
             $table->integer('nokartu');
             $table->text('keperluan')->nullable();
+            $table->string('keterangan_kartu')->nullable();
             $table->time('waktu_kedatangan');
             $table->time('waktu_kepulangan')->nullable();
             $table->bigInteger('data_tamus_id')->nullable();

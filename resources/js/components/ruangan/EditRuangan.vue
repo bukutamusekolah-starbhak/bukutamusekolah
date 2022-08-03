@@ -22,7 +22,10 @@ export default {
         // let u = `http://localhost:8000/api/ruangans/${this.$route.params.id}`;
         this.axios.get(`http://localhost:8000/api/ruangans/${this.$route.params.id}`).then((response)=>{
             this.ruangans = response.data.data;
-        });
+        }).catch(function (error) {
+            // alert(error);
+            window.location.assign("/#/404")
+        })
     },
     methods:{
         UpdateRuangan(){
